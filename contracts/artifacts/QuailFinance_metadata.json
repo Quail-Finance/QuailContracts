@@ -1,0 +1,336 @@
+{
+	"compiler": {
+		"version": "0.8.24+commit.e11b9ed9"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "potId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "participant",
+						"type": "address"
+					}
+				],
+				"name": "ParticipantJoined",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "potId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "creator",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "rotationCycleInSeconds",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_interestDenominator",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_interestNumerator",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_numParticipants",
+						"type": "uint256"
+					}
+				],
+				"name": "PotCreated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "potId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "winner",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "round",
+						"type": "uint256"
+					}
+				],
+				"name": "RotationCompleted",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "USDB",
+				"outputs": [
+					{
+						"internalType": "contract IERC20Rebasing",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_potId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "calculateInterest",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_rotationCycleInSeconds",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_interestDenominator",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_interestNumerator",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_numParticipants",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "createPot",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_potId",
+						"type": "uint256"
+					}
+				],
+				"name": "joinPot",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "pots",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "rotationCycleInSeconds",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "lastRotationTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "interestNumerator",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "interestDenominator",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "numParticipants",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "currentRound",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "potCreator",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_potId",
+						"type": "uint256"
+					}
+				],
+				"name": "rotateLiquidity",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalRevenue",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "usdbToken",
+				"outputs": [
+					{
+						"internalType": "contract IERC20",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/QuailFinance.sol": "QuailFinance"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+			"keccak256": "0xc6a8ff0ea489379b61faa647490411b80102578440ab9d84e9a957cc12164e70",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0ea104e577e63faea3b69c415637e99e755dcbf64c5833d7140c35a714d6d90c",
+				"dweb:/ipfs/Qmau6x4Ns9XdyynRCNNp3RhLqijJjFm7z5fyZazfYFGYdq"
+			]
+		},
+		"contracts/IERC20Rebasing.sol": {
+			"keccak256": "0xd7456daba0e57d0561815401c9f24a2fcf8b4daa471c16055c92af915aaaf33f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://43cbe83d82e6c965beb79df69c3154803aa59f6b71c326697e408d7884dc46e4",
+				"dweb:/ipfs/QmTYC1k7XZ5XftKRXk8ZHVvpACxUbLh7CQVAa2tbdEKLvo"
+			]
+		},
+		"contracts/QuailFinance.sol": {
+			"keccak256": "0x4c0723c922c74a52f27d3569b006c86a1d3988706bd3c0faa546b0a531ec3c65",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://dd21346d5e045f1ad11f07ea4266dd4f1eec0ee7435689a67b14e6ccc5855e41",
+				"dweb:/ipfs/QmRC9iDxMkzfFgicero2cJCMZF1Y5aZwXMovnj947iC77y"
+			]
+		}
+	},
+	"version": 1
+}

@@ -1,0 +1,497 @@
+{
+	"deploy": {
+		"VM:-": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"main:1": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"ropsten:3": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"rinkeby:4": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"kovan:42": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"goerli:5": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"Custom": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		}
+	},
+	"data": {
+		"bytecode": {
+			"functionDebugData": {},
+			"generatedSources": [],
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"deployedBytecode": {
+			"functionDebugData": {},
+			"generatedSources": [],
+			"immutableReferences": {},
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"gasEstimates": null,
+		"methodIdentifiers": {
+			"claimAllGas(address,address)": "954fa5ee",
+			"claimAllYield(address,address)": "860043b6",
+			"claimGas(address,address,uint256,uint256)": "fafce39e",
+			"claimGasAtMinClaimRate(address,address,uint256)": "0951888f",
+			"claimMaxGas(address,address)": "662aa11d",
+			"claimYield(address,address,uint256)": "f9719662",
+			"configure(uint8,uint8,address)": "c8992e61",
+			"configureAutomaticYield()": "7114177a",
+			"configureAutomaticYieldOnBehalf(address)": "3ba5713e",
+			"configureClaimableGas()": "4e606c47",
+			"configureClaimableGasOnBehalf(address)": "908c8502",
+			"configureClaimableYield()": "f098767a",
+			"configureClaimableYieldOnBehalf(address)": "37ebe3a8",
+			"configureContract(address,uint8,uint8,address)": "4c802f38",
+			"configureGovernor(address)": "eb864698",
+			"configureGovernorOnBehalf(address,address)": "0ca12c4b",
+			"configureVoidGas()": "2210dfb1",
+			"configureVoidGasOnBehalf(address)": "eb59acdc",
+			"configureVoidYield()": "aa857d98",
+			"configureVoidYieldOnBehalf(address)": "b71d6dd4",
+			"readClaimableYield(address)": "ec3278e8",
+			"readGasParams(address)": "dde798a4",
+			"readYieldConfiguration(address)": "fd8c4b9d"
+		}
+	},
+	"abi": [
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "contractAddress",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "recipientOfGas",
+					"type": "address"
+				}
+			],
+			"name": "claimAllGas",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "contractAddress",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "recipientOfYield",
+					"type": "address"
+				}
+			],
+			"name": "claimAllYield",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "contractAddress",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "recipientOfGas",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "gasToClaim",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "gasSecondsToConsume",
+					"type": "uint256"
+				}
+			],
+			"name": "claimGas",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "contractAddress",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "recipientOfGas",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "minClaimRateBips",
+					"type": "uint256"
+				}
+			],
+			"name": "claimGasAtMinClaimRate",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "contractAddress",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "recipientOfGas",
+					"type": "address"
+				}
+			],
+			"name": "claimMaxGas",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "contractAddress",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "recipientOfYield",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amount",
+					"type": "uint256"
+				}
+			],
+			"name": "claimYield",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "enum YieldMode",
+					"name": "_yield",
+					"type": "uint8"
+				},
+				{
+					"internalType": "enum GasMode",
+					"name": "gasMode",
+					"type": "uint8"
+				},
+				{
+					"internalType": "address",
+					"name": "governor",
+					"type": "address"
+				}
+			],
+			"name": "configure",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "configureAutomaticYield",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "contractAddress",
+					"type": "address"
+				}
+			],
+			"name": "configureAutomaticYieldOnBehalf",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "configureClaimableGas",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "contractAddress",
+					"type": "address"
+				}
+			],
+			"name": "configureClaimableGasOnBehalf",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "configureClaimableYield",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "contractAddress",
+					"type": "address"
+				}
+			],
+			"name": "configureClaimableYieldOnBehalf",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "contractAddress",
+					"type": "address"
+				},
+				{
+					"internalType": "enum YieldMode",
+					"name": "_yield",
+					"type": "uint8"
+				},
+				{
+					"internalType": "enum GasMode",
+					"name": "gasMode",
+					"type": "uint8"
+				},
+				{
+					"internalType": "address",
+					"name": "governor",
+					"type": "address"
+				}
+			],
+			"name": "configureContract",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "_governor",
+					"type": "address"
+				}
+			],
+			"name": "configureGovernor",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "_newGovernor",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "contractAddress",
+					"type": "address"
+				}
+			],
+			"name": "configureGovernorOnBehalf",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "configureVoidGas",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "contractAddress",
+					"type": "address"
+				}
+			],
+			"name": "configureVoidGasOnBehalf",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "configureVoidYield",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "contractAddress",
+					"type": "address"
+				}
+			],
+			"name": "configureVoidYieldOnBehalf",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "contractAddress",
+					"type": "address"
+				}
+			],
+			"name": "readClaimableYield",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "contractAddress",
+					"type": "address"
+				}
+			],
+			"name": "readGasParams",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "etherSeconds",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "etherBalance",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "lastUpdated",
+					"type": "uint256"
+				},
+				{
+					"internalType": "enum GasMode",
+					"name": "",
+					"type": "uint8"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "contractAddress",
+					"type": "address"
+				}
+			],
+			"name": "readYieldConfiguration",
+			"outputs": [
+				{
+					"internalType": "uint8",
+					"name": "",
+					"type": "uint8"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		}
+	]
+}
