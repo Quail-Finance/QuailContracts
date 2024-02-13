@@ -3,9 +3,11 @@ pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "./IERC20Rebasing.sol";
+import "./IBlast.sol";
 
 contract QuailFinance{
     uint256 private nextPotId = 1; // Start pot IDs at 1
+    IBlast public constant BLAST = IBlast(0x4300000000000000000000000000000000000002);
     uint256 public totalRevenue;
     IERC20 public usdbToken; // USDC token interface
     mapping(uint256 => Pot) public pots;
@@ -52,6 +54,7 @@ contract QuailFinance{
     constructor() {
         USDB.configure(YieldMode.CLAIMABLE); //configure claimable yield for USDB
         usdbToken = IERC20(0x4200000000000000000000000000000000000022);
+        BLAST.configureClaimableGas();
 	}
     // Create a new Quail Pot
     function createPot(uint256 _rotationCycleInSeconds, uint256 _interestDenominator, uint256 _interestNumerator, uint256 _numParticipants, uint256 _amount) public{
@@ -128,11 +131,16 @@ contract QuailFinance{
         return _amount * pot.interestNumerator / pot.interestDenominator;
     }
 
-    
     function deductRevenue(uint256 _amount) private returns (uint256 netAmount) {
         uint256 revenue = _amount / 100;
         netAmount = _amount - revenue;
         totalRevenue += revenue;
         return (netAmount);
+    }
+
+    // Function to claim gas
+    // To-do either give gas fees to users or let admin withdraw it 
+    function claimMyContractsGas() external {
+        BLAST.claimAllGas(address(this), msg.sender);
     }
 }

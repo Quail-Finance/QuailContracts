@@ -105,6 +105,19 @@
 			},
 			{
 				"inputs": [],
+				"name": "BLAST",
+				"outputs": [
+					{
+						"internalType": "contract IBlast",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "USDB",
 				"outputs": [
 					{
@@ -138,6 +151,13 @@
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "claimMyContractsGas",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -315,6 +335,14 @@
 				"dweb:/ipfs/Qmau6x4Ns9XdyynRCNNp3RhLqijJjFm7z5fyZazfYFGYdq"
 			]
 		},
+		"contracts/IBlast.sol": {
+			"keccak256": "0x55ca30a5c12bd255a306b9342e7e101ce0c88d62679318372771b8cb0b7ce733",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://df42814393047e060e4188a8736131ff4cac706080d04e207809a810b73bbc80",
+				"dweb:/ipfs/QmZxXg2RDc8qopt354UD7qVTKBwYtt7cFJ1tpqJNyxpK1Q"
+			]
+		},
 		"contracts/IERC20Rebasing.sol": {
 			"keccak256": "0xd7456daba0e57d0561815401c9f24a2fcf8b4daa471c16055c92af915aaaf33f",
 			"license": "MIT",
@@ -324,11 +352,11 @@
 			]
 		},
 		"contracts/QuailFinance.sol": {
-			"keccak256": "0x4c0723c922c74a52f27d3569b006c86a1d3988706bd3c0faa546b0a531ec3c65",
+			"keccak256": "0x3758b6f0c35c8fbc34f2f252a8db362b823fe15ff23cbe567c69d51bb627b948",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://dd21346d5e045f1ad11f07ea4266dd4f1eec0ee7435689a67b14e6ccc5855e41",
-				"dweb:/ipfs/QmRC9iDxMkzfFgicero2cJCMZF1Y5aZwXMovnj947iC77y"
+				"bzz-raw://4a79d5e979bf08000f83a927ac1ffb886133b55a70d4f95bc742ce7954080718",
+				"dweb:/ipfs/QmRddXZMGoGHonzSyRs86Zp9FiJ3fPXRowerAZ1VmBYfud"
 			]
 		}
 	},
