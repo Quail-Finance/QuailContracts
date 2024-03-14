@@ -9,10 +9,13 @@ import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol";
 import "@pythnetwork/entropy-sdk-solidity/IEntropy.sol";
+import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
 
 contract QuailFinance is Initializable, OwnableUpgradeable {
     IEntropy private entropy;
     address private entropyProvider;
+    address public admin;
+    using ECDSA for bytes32;
     bytes32 public merkleRoot; // The Merkle Root representing all valid claims
     uint256 private nextPotId = 1; // Start pot IDs at 1
     IBlast public constant BLAST = IBlast(0x4300000000000000000000000000000000000002);
@@ -67,11 +70,11 @@ contract QuailFinance is Initializable, OwnableUpgradeable {
     IERC20Rebasing public constant USDB = IERC20Rebasing(0x4200000000000000000000000000000000000022);
 
     function initialize() public initializer {
+        require(msg.sender == owner(), "Only the owner can initialize");
         __Ownable_init(msg.sender);
-        // Your initialization logic here (previously in the constructor)
     }
 
-    constructor(address _entropy, address _entropyProvider) {
+    constructor(address _entropy, address _entropyProvider, address adminSigner) {
         USDB.configure(YieldMode.CLAIMABLE); //configure claimable yield for USDB
         usdbToken = IERC20(0x4200000000000000000000000000000000000022);
         BLAST.configureClaimableGas();
@@ -79,6 +82,7 @@ contract QuailFinance is Initializable, OwnableUpgradeable {
         IBlastPoints(0x2fc95838c71e76ec69ff817983BFf17c710F34E0).configurePointsOperator(0xE4860D3973802C7C42450D7b9741921C7711D039);
         entropy = IEntropy(_entropy);
         entropyProvider = _entropyProvider;
+        admin = adminSigner;
 	}
     // Create a new Quail Pot
     function createPot(string memory _name, bytes32 userCommitment, uint256 _rotationCycleInSeconds, uint256 _interestDenominator, uint256 _interestNumerator, uint256 _numParticipants, uint256 _amount) public payable {
@@ -117,12 +121,11 @@ contract QuailFinance is Initializable, OwnableUpgradeable {
 
     // Join a Quail Pot
     // To-do need to check if all the participants participated 
-    function joinPot(uint256 _potId) external payable {
+    function joinPot(uint256 _potId, bytes memory signature, uint256 nonce) external payable {
         Pot storage pot = pots[_potId];
         require(pot.participants.length < pot.numParticipants, "Pot is full");
-        // checks if any participants missed deposits 
-        require(pot.contributions[msg.sender] == pot.amount*pot.currentRound, "Already joined or missed a deposit");
-        
+        bytes32 messageHash = keccak256(abi.encodePacked(_potId, msg.sender, pot.currentRound, nonce));
+        require(admin == messageHash.recover(signature), "Signature verification failed");
         // Transfer usdb to the contract
         require(usdbToken.transferFrom(msg.sender, address(this), pot.amount), "Transfer failed");
         pot.contributions[msg.sender] = pot.amount;
@@ -158,12 +161,14 @@ contract QuailFinance is Initializable, OwnableUpgradeable {
         pot.amountWon[winner] = amountAfterRevenue-riskPoolBalance;
         pot.hasWon[winner] = true;
         pot.lastRotationTime = block.timestamp;
+        // Increment round only if there are participants left
+        if (pot.participants.length > 0) {
+            pot.currentRound++;
+        }
         delete pot.participants;
         require(usdbToken.transferFrom(msg.sender, address(this), pot.amount), "Creator should deposit the initial amount");
         pot.participants.push(msg.sender);
         emit RotationCompleted(_potId, winner, pot.currentRound);
-        // Increment round for the next rotation
-        pot.currentRound++;
     }
 
     function claimReward(uint256 _potId) external {
@@ -215,6 +220,10 @@ contract QuailFinance is Initializable, OwnableUpgradeable {
 
     function setMerkleRoot(bytes32 _merkleRoot) external onlyOwner {
         merkleRoot = _merkleRoot;
+    }
+
+    function changeAdminSigner(address newAdmin) external onlyOwner{
+        admin = newAdmin;
     }
 
     function claimFunds(uint256 claimAmount, bytes32[] calldata merkleProof) external {

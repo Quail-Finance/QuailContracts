@@ -16,10 +16,42 @@
 						"internalType": "address",
 						"name": "_entropyProvider",
 						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "adminSigner",
+						"type": "address"
 					}
 				],
 				"stateMutability": "nonpayable",
 				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "ECDSAInvalidSignature",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "length",
+						"type": "uint256"
+					}
+				],
+				"name": "ECDSAInvalidSignatureLength",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "s",
+						"type": "bytes32"
+					}
+				],
+				"name": "ECDSAInvalidSignatureS",
+				"type": "error"
 			},
 			{
 				"inputs": [],
@@ -253,6 +285,19 @@
 				"type": "function"
 			},
 			{
+				"inputs": [],
+				"name": "admin",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "uint256",
@@ -274,6 +319,19 @@
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newAdmin",
+						"type": "address"
+					}
+				],
+				"name": "changeAdminSigner",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -395,6 +453,16 @@
 					{
 						"internalType": "uint256",
 						"name": "_potId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "signature",
+						"type": "bytes"
+					},
+					{
+						"internalType": "uint256",
+						"name": "nonce",
 						"type": "uint256"
 					}
 				],
@@ -590,6 +658,21 @@
 		],
 		"devdoc": {
 			"errors": {
+				"ECDSAInvalidSignature()": [
+					{
+						"details": "The signature derives the `address(0)`."
+					}
+				],
+				"ECDSAInvalidSignatureLength(uint256)": [
+					{
+						"details": "The signature has an invalid length."
+					}
+				],
+				"ECDSAInvalidSignatureS(bytes32)": [
+					{
+						"details": "The signature has an S value that is in the upper half order."
+					}
+				],
 				"InvalidInitialization()": [
 					{
 						"details": "The contract is already initialized."
@@ -684,6 +767,14 @@
 				"dweb:/ipfs/Qmau6x4Ns9XdyynRCNNp3RhLqijJjFm7z5fyZazfYFGYdq"
 			]
 		},
+		"@openzeppelin/contracts/utils/cryptography/ECDSA.sol": {
+			"keccak256": "0xeed0a08b0b091f528356cbc7245891a4c748682d4f6a18055e8e6ca77d12a6cf",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ba80ba06c8e6be852847e4c5f4492cef801feb6558ae09ed705ff2e04ea8b13c",
+				"dweb:/ipfs/QmXRJDv3xHLVQCVXg1ZvR35QS9sij5y9NDWYzMfUfAdTHF"
+			]
+		},
 		"@openzeppelin/contracts/utils/cryptography/MerkleProof.sol": {
 			"keccak256": "0x6400c4bee15052e043e5d10315135972529bd1c8012f43da494dc6b4f4661058",
 			"license": "MIT",
@@ -741,11 +832,11 @@
 			]
 		},
 		"contracts/QuailFinance.sol": {
-			"keccak256": "0xd5b1bdf348c3a6ca5a9d9fb99e9e5c97609202b55edfa71f8397d90b1c112fee",
+			"keccak256": "0x08e380a7dc2b37323a60e4f4f5febfae9d7dacfd7bb55aae208ee623e4f975c6",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://5486e52132e15d54d0e4fdecb1451a0aae65403c2b87e2ba3fed473793fd12f9",
-				"dweb:/ipfs/QmTcsZRWWAv2DuAqJfAxUNQDy2fsUGnjPWPXoAsbJVNMQW"
+				"bzz-raw://d4cd3b4d9bf1f0dcf66fa3c4102fee19bf08a3b102cfe0aace58168dd5291162",
+				"dweb:/ipfs/QmbesV8dttUdnAdXi53PTVDmXYRuHYykbkLJB7FzK9vzAb"
 			]
 		}
 	},
