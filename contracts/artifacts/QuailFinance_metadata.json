@@ -6,7 +6,18 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [],
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_entropy",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_entropyProvider",
+						"type": "address"
+					}
+				],
 				"stateMutability": "nonpayable",
 				"type": "constructor"
 			},
@@ -82,6 +93,12 @@
 						"internalType": "uint256",
 						"name": "potId",
 						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
 					},
 					{
 						"indexed": false,
@@ -173,6 +190,12 @@
 						"internalType": "uint256",
 						"name": "_numParticipants",
 						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint64",
+						"name": "sequenceNumber",
+						"type": "uint64"
 					}
 				],
 				"name": "PotCreated",
@@ -242,7 +265,7 @@
 						"type": "uint256"
 					}
 				],
-				"name": "calculateInterest",
+				"name": "calculateRiskPoolBalance",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -288,9 +311,27 @@
 			{
 				"inputs": [
 					{
+						"internalType": "uint256",
+						"name": "_potId",
+						"type": "uint256"
+					}
+				],
+				"name": "claimReward",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "string",
 						"name": "_name",
 						"type": "string"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "userCommitment",
+						"type": "bytes32"
 					},
 					{
 						"internalType": "uint256",
@@ -320,7 +361,7 @@
 				],
 				"name": "createPot",
 				"outputs": [],
-				"stateMutability": "nonpayable",
+				"stateMutability": "payable",
 				"type": "function"
 			},
 			{
@@ -410,6 +451,11 @@
 					},
 					{
 						"internalType": "uint256",
+						"name": "riskPoolBalance",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
 						"name": "rotationCycleInSeconds",
 						"type": "uint256"
 					},
@@ -439,6 +485,11 @@
 						"type": "uint256"
 					},
 					{
+						"internalType": "uint64",
+						"name": "sequenceNumber",
+						"type": "uint64"
+					},
+					{
 						"internalType": "address",
 						"name": "potCreator",
 						"type": "address"
@@ -460,6 +511,16 @@
 						"internalType": "uint256",
 						"name": "_potId",
 						"type": "uint256"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "userRandom",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "providerRandom",
+						"type": "bytes32"
 					}
 				],
 				"name": "rotateLiquidity",
@@ -517,6 +578,13 @@
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "withdrawRevenue",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			}
 		],
@@ -624,6 +692,30 @@
 				"dweb:/ipfs/QmTHdoghh4WLu4yURjGEgRk162pcwwdsG52MPGa12GqnGR"
 			]
 		},
+		"@pythnetwork/entropy-sdk-solidity/EntropyEvents.sol": {
+			"keccak256": "0xded0aaeffb359531dffccea98ef0b3fa7c47999926b47618342e48b168fd7ea9",
+			"license": "Apache-2.0",
+			"urls": [
+				"bzz-raw://18fc6f97a88dbd26fa8c550823ae5a74dadae72213f38859246b3c27bc14293b",
+				"dweb:/ipfs/QmXsLYWVeM9UQDMsob3Q51PxK9jP99fruJW2S1uFUt21w6"
+			]
+		},
+		"@pythnetwork/entropy-sdk-solidity/EntropyStructs.sol": {
+			"keccak256": "0x61ef31ee296e6c4404c334ba09953db0d195bb93bbddefcc6ded3a6c700b22f3",
+			"license": "Apache 2",
+			"urls": [
+				"bzz-raw://31898e1d9ff38cb1cbea1457eea455596a64ab6546cc2075ef26f53078db6791",
+				"dweb:/ipfs/QmPtVDTYSJUmUMCoC9GPoEHAXJvdkbjsHu2eQNp6DNcT3z"
+			]
+		},
+		"@pythnetwork/entropy-sdk-solidity/IEntropy.sol": {
+			"keccak256": "0x23ea0ee3b8b50e00d7edadb4e5b7877165518cd822b453d1cb48e21b777bb612",
+			"license": "Apache 2",
+			"urls": [
+				"bzz-raw://6405d20218c21a8c3a7f7cf985573a32378cb90f8329726040865aa2fd508185",
+				"dweb:/ipfs/QmZDw9Wv3PwWkm5obHNrS45CgDCyHkCi7eqX29qryeWcu9"
+			]
+		},
 		"contracts/IBlast.sol": {
 			"keccak256": "0x55ca30a5c12bd255a306b9342e7e101ce0c88d62679318372771b8cb0b7ce733",
 			"license": "MIT",
@@ -649,11 +741,11 @@
 			]
 		},
 		"contracts/QuailFinance.sol": {
-			"keccak256": "0x193acdc714d1799d0efcedc8d9fbd88a6de1566b6c20b0b71fbb5ca02256379b",
+			"keccak256": "0xd5b1bdf348c3a6ca5a9d9fb99e9e5c97609202b55edfa71f8397d90b1c112fee",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://4999bd38ac5c275210d3a1daefc159cbd267319173e68c4b8682b79b2fdb52b5",
-				"dweb:/ipfs/QmZev8zKuVGHq4TSUwFoD31yDJFKbK2DeBYF3uCmEpS9wH"
+				"bzz-raw://5486e52132e15d54d0e4fdecb1451a0aae65403c2b87e2ba3fed473793fd12f9",
+				"dweb:/ipfs/QmTcsZRWWAv2DuAqJfAxUNQDy2fsUGnjPWPXoAsbJVNMQW"
 			]
 		}
 	},
