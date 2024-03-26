@@ -253,6 +253,12 @@
 						"internalType": "uint256",
 						"name": "round",
 						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint64",
+						"name": "sequenceNumber",
+						"type": "uint64"
 					}
 				],
 				"name": "RotationCompleted",
@@ -435,6 +441,35 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "hasJoinedPot",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "initialize",
 				"outputs": [],
@@ -580,6 +615,11 @@
 					},
 					{
 						"internalType": "bytes32",
+						"name": "userCommitment",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes32",
 						"name": "userRandom",
 						"type": "bytes32"
 					},
@@ -591,7 +631,7 @@
 				],
 				"name": "rotateLiquidity",
 				"outputs": [],
-				"stateMutability": "nonpayable",
+				"stateMutability": "payable",
 				"type": "function"
 			},
 			{
@@ -858,11 +898,11 @@
 			]
 		},
 		"contracts/QuailFinance.sol": {
-			"keccak256": "0x4f213a3a31ba41ff5fee1d6a673b83d1b12037d523a8dc8573ec9459863143b1",
+			"keccak256": "0x749af3226015e29a45e3b7799487444b2ef9e4ddaf5cfc4c4bd1ad4825aec67c",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://a16f9b46a5bb340eeb40afc7e092f826d4294c30fb9913544cf6a1a462cb27fb",
-				"dweb:/ipfs/QmWnb4x2QkEgqCARo9gnfZGv8LhyZsgVrbRD59CiRdot62"
+				"bzz-raw://de5debbcd6afd6e4ea7ae70df782c094f07df9210befca6181dd1b49947737ca",
+				"dweb:/ipfs/QmeYx5h7K7bujuWyC88DyMas3aaBcXQ7wn9gUwkwZBAAGn"
 			]
 		}
 	},
