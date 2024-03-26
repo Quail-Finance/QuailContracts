@@ -335,13 +335,6 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "claimAllYield",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
 				"inputs": [
 					{
 						"internalType": "uint256",
@@ -468,7 +461,7 @@
 				],
 				"name": "joinPot",
 				"outputs": [],
-				"stateMutability": "payable",
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -520,6 +513,11 @@
 					{
 						"internalType": "uint256",
 						"name": "riskPoolBalance",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "useRiskPoolBalance",
 						"type": "uint256"
 					},
 					{
@@ -646,6 +644,34 @@
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_potId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "signature",
+						"type": "bytes"
+					},
+					{
+						"internalType": "uint256",
+						"name": "nonce",
+						"type": "uint256"
+					}
+				],
+				"name": "useRiskPool",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -784,27 +810,27 @@
 			]
 		},
 		"@pythnetwork/entropy-sdk-solidity/EntropyEvents.sol": {
-			"keccak256": "0xded0aaeffb359531dffccea98ef0b3fa7c47999926b47618342e48b168fd7ea9",
+			"keccak256": "0xd8a8c77c864481ee7620adf8b92219f3c68c626271887e26330362642053f504",
 			"license": "Apache-2.0",
 			"urls": [
-				"bzz-raw://18fc6f97a88dbd26fa8c550823ae5a74dadae72213f38859246b3c27bc14293b",
-				"dweb:/ipfs/QmXsLYWVeM9UQDMsob3Q51PxK9jP99fruJW2S1uFUt21w6"
+				"bzz-raw://f918e6fcdf4cc8c991ff4c7d81860c6b0e3b4b536e543361309cfecd8a8ecf67",
+				"dweb:/ipfs/QmdBuzs7dyGGaceP4QDqu3MLnqeBLbsEpCKGWyz3a9kY8v"
 			]
 		},
 		"@pythnetwork/entropy-sdk-solidity/EntropyStructs.sol": {
-			"keccak256": "0x61ef31ee296e6c4404c334ba09953db0d195bb93bbddefcc6ded3a6c700b22f3",
+			"keccak256": "0xace052155e23df810ba04a93da02fc527efd0a6fd9244d95574af5d8891934e7",
 			"license": "Apache 2",
 			"urls": [
-				"bzz-raw://31898e1d9ff38cb1cbea1457eea455596a64ab6546cc2075ef26f53078db6791",
-				"dweb:/ipfs/QmPtVDTYSJUmUMCoC9GPoEHAXJvdkbjsHu2eQNp6DNcT3z"
+				"bzz-raw://31d77a8a3cfb552c684867ec96bb8ea0e59573db7d3108cd561b03e4749fd415",
+				"dweb:/ipfs/QmepPDf6digkAGepANKv3yW8d5QqmJQqWjgmWSzNJVkMLq"
 			]
 		},
 		"@pythnetwork/entropy-sdk-solidity/IEntropy.sol": {
-			"keccak256": "0x23ea0ee3b8b50e00d7edadb4e5b7877165518cd822b453d1cb48e21b777bb612",
+			"keccak256": "0xd9b56a1a73bae0ccb68111cd43529e97dbd2a1361464bb3f2f336442022671f7",
 			"license": "Apache 2",
 			"urls": [
-				"bzz-raw://6405d20218c21a8c3a7f7cf985573a32378cb90f8329726040865aa2fd508185",
-				"dweb:/ipfs/QmZDw9Wv3PwWkm5obHNrS45CgDCyHkCi7eqX29qryeWcu9"
+				"bzz-raw://eb17d65863573cac9410cb956684a14b1b4e28c7869e209cb74218f46d9dd2bf",
+				"dweb:/ipfs/QmXcqPg5iHzQDd5jstBVADWbGukXvQKb2nmizujAaiEJPr"
 			]
 		},
 		"contracts/IBlast.sol": {
@@ -832,11 +858,11 @@
 			]
 		},
 		"contracts/QuailFinance.sol": {
-			"keccak256": "0x08e380a7dc2b37323a60e4f4f5febfae9d7dacfd7bb55aae208ee623e4f975c6",
+			"keccak256": "0x4f213a3a31ba41ff5fee1d6a673b83d1b12037d523a8dc8573ec9459863143b1",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://d4cd3b4d9bf1f0dcf66fa3c4102fee19bf08a3b102cfe0aace58168dd5291162",
-				"dweb:/ipfs/QmbesV8dttUdnAdXi53PTVDmXYRuHYykbkLJB7FzK9vzAb"
+				"bzz-raw://a16f9b46a5bb340eeb40afc7e092f826d4294c30fb9913544cf6a1a462cb27fb",
+				"dweb:/ipfs/QmWnb4x2QkEgqCARo9gnfZGv8LhyZsgVrbRD59CiRdot62"
 			]
 		}
 	},
